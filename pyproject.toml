@@ -9,17 +9,17 @@ build-backend = "setuptools.build_meta"
 requires = ["setuptools>=80", "wheel"]
 
 [project]
-authors = [{name = "Denise Case"}] # TODO: Change to YOUR name (ownership matters)
+authors = [{ name = "Sabri Hamdaoui" }]
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.12",
 ]
-description = "Professional Python starter project using uv and a src layout"
+description = "Business Intelligence Python project – Get Started and Add Raw Data"
 license = "MIT"
-name = "analytics-project" # PACKAGE name (matches src folder except with dashes)
+name = "bi-python-project"
 readme = "README.md"
 requires-python = ">=3.12"
-version = "0.0.1"
+version = "1.0.0"
 
 dependencies = [ # fmt: off
   "loguru",      # Better than print() - practice production logging with levels
@@ -31,10 +31,10 @@ dependencies = [ # fmt: off
 ]  # fmt: on
 
 [project.urls]
-"Bug Tracker" = "https://github.com/denisecase/pro-analytics-02-starter/issues"
-Documentation = "https://denisecase.github.io/pro-analytics-02-starter/"
-Homepage = "https://github.com/denisecase/pro-analytics-02-starter"
-Repository = "https://github.com/denisecase/pro-analytics-02-starter"
+"Bug Tracker" = "https://github.com/SabriHamdaoui/bi-python-project/issues"
+Documentation = "https://github.com/SabriHamdaoui/bi-python-project#readme"
+Homepage = "https://github.com/SabriHamdaoui/bi-python-project"
+Repository = "https://github.com/SabriHamdaoui/bi-python-project"
 
 [project.optional-dependencies]
 dev = [
