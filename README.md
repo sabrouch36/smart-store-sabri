@@ -1,170 +1,145 @@
-# Pro Analytics 02 Python Starter Repository
+# 📊 Project P2: BI Python – Reading Raw Data into pandas DataFrames
 
-> Use this repo to start a professional Python project.
+> Use this repo to start a professional Python BI project that reads raw data into pandas DataFrames.
 
-- Additional information: <https://github.com/denisecase/pro-analytics-02>
-- Project organization: [STRUCTURE](./STRUCTURE.md)
-- Build professional skills:
-  - **Environment Management**: Every project in isolation
-  - **Code Quality**: Automated checks for fewer bugs
-  - **Documentation**: Use modern project documentation tools
-  - **Testing**: Prove your code works
-  - **Version Control**: Collaborate professionally
+- Course: Business Intelligence (Pro Analytics 02)
+- Instructor: Dr. Denise Case
+- Repository Template: <https://github.com/denisecase/pro-analytics-02>
+- Author: **Sabri Hamdaoui**, MBA – Data Analytics
+- University: Northwest Missouri State University
+- GitHub: [sabrouch36](https://github.com/sabrouch36)
 
 ---
 
-## WORKFLOW 1. Set Up Your Machine
-
-Proper setup is critical.
-Complete each step in the following guide and verify carefully.
-
-- [SET UP MACHINE](./SET_UP_MACHINE.md)
+## 🎯 Project Objective
+This project demonstrates how to read raw business data (CSV files) into **pandas DataFrames** using Python, as part of a Business Intelligence (BI) data pipeline.
+It emphasizes reusable logic, structured code, logging, and Git-based project management.
 
 ---
 
-## WORKFLOW 2. Set Up Your Project
+## 🧠 Key Learning Outcomes
+- Automate the reading of CSV files into pandas DataFrames.
+- Use **loguru** for professional, centralized logging.
+- Structure a Python project using the `src/analytics_project/` folder.
+- Apply **Git version control** for collaborative data projects.
+- Understand BI workflows that prepare data for analysis and visualization.
 
-After verifying your machine is set up, set up a new Python project by copying this template.
-Complete each step in the following guide.
+---
 
-- [SET UP PROJECT](./SET_UP_PROJECT.md)
+## 🧩 Project Structure
+smart-store-sabri/
+│
+├── data/
+│ └── raw/
+│ ├── customers_data.csv
+│ ├── products_data.csv
+│ └── sales_data.csv
+│
+├── src/
+│ └── analytics_project/
+│ ├── data_prep.py
+│ └── utils_logger.py
+│
+├── project.log
+├── pyproject.toml
+└── README.md
 
-It includes the critical commands to set up your local environment (and activate it):
+---
 
-```shell
+## ⚙️ Setup & Execution Workflow
+
+### 1️⃣ Environment Setup
+Create and activate your local environment.
+
+```bash
 uv venv
 uv python pin 3.12
 uv sync --extra dev --extra docs --upgrade
 uv run pre-commit install
 uv run python --version
-```
-
-**Windows (PowerShell):**
-
-```shell
+Windows (PowerShell)
 .\.venv\Scripts\activate
-```
 
-**macOS / Linux / WSL:**
+3️⃣ Example Log Output
+2025-10-28 22:38:INFO AT utils_logger.py:105: Logging to file: C:\Users\sabri\projects\smart-store-sabri\project.log
+2025-10-28 22:38:INFO AT data_prep.py:52: Starting data preparation...
+2025-10-28 22:38:INFO AT data_prep.py:35: Reading raw data from customers_data.csv
+2025-10-28 22:38:INFO AT data_prep.py:38: customers_data.csv: loaded DataFrame with shape 201 rows x 4 cols
+2025-10-28 22:38:INFO AT data_prep.py:35: Reading raw data from products_data.csv
+2025-10-28 22:38:INFO AT data_prep.py:38: products_data.csv: loaded DataFrame with shape 100 rows x 4 cols
+2025-10-28 22:38:INFO AT data_prep.py:35: Reading raw data from sales_data.csv
+2025-10-28 22:38:INFO AT data_prep.py:38: sales_data.csv: loaded DataFrame with shape 2001 rows x 7 cols
+2025-10-28 22:38:INFO AT data_prep.py:64: Data preparation complete.
 
-```shell
-source .venv/bin/activate
-```
+4️⃣ Git Version Control Commands
 
----
+Use Git frequently to track progress and sync your work to GitHub.
+git add .
+git commit -m "Add data_prep and utils_logger modules"
+git push -u origin main
 
-## WORKFLOW 3. Daily Workflow
+Later updates:
+git add README.md
+git commit -m "Update README with workflow, results, and reflection"
+git push
 
-Please ensure that the prior steps have been verified before continuing.
-When working on a project, we open just that project in VS Code.
+5️⃣ Results Summary
 
-### 3.1 Git Pull from GitHub
+All raw data files were successfully loaded into DataFrames.
 
-Always start with `git pull` to check for any changes made to the GitHub repo.
+File Name	Rows	Columns
+customers_data.csv	201	4
+products_data.csv	100	4
+sales_data.csv	2001	7
 
-```shell
-git pull
-```
+✅ Logs confirm that the ETL (Extract–Transform–Load) pipeline executed without errors.
 
-### 3.2 Run Checks as You Work
+🧠 Reflection
 
-This mirrors real work where we typically:
+Through this project, I learned to:
 
-1. Update dependencies (for security and compatibility).
-2. Clean unused cached packages to free space.
-3. Use `git add .` to stage all changes.
-4. Run ruff and fix minor issues.
-5. Update pre-commit periodically.
-6. Run pre-commit quality checks on all code files (**twice if needed**, the first pass may fix things).
-7. Run tests.
+Implement modular BI data pipelines in Python.
 
-In VS Code, open your repository, then open a terminal (Terminal / New Terminal) and run the following commands one at a time to check the code.
+Use logging for debugging and traceability.
 
-```shell
+Manage code versions professionally with Git and GitHub.
+
+Prepare data for future analytics or visualization workflows.
+
+This experience builds strong foundational skills for real-world business intelligence and data analytics work.
+
+🧰 Optional Development Tools & Checks
+
+To maintain professional project standards:
+
 uv sync --extra dev --extra docs --upgrade
 uv cache clean
 git add .
 uvx ruff check --fix
 uvx pre-commit autoupdate
 uv run pre-commit run --all-files
-git add .
 uv run pytest
-```
 
-NOTE: The second `git add .` ensures any automatic fixes made by Ruff or pre-commit are included before testing or committing.
 
-<details>
-<summary>Click to see a note on best practices</summary>
+Run documentation build (optional for BI reporting):
 
-`uvx` runs the latest version of a tool in an isolated cache, outside the virtual environment.
-This keeps the project light and simple, but behavior can change when the tool updates.
-For fully reproducible results, or when you need to use the local `.venv`, use `uv run` instead.
-
-</details>
-
-### 3.3 Build Project Documentation
-
-Make sure you have current doc dependencies, then build your docs, fix any errors, and serve them locally to test.
-
-```shell
 uv run mkdocs build --strict
 uv run mkdocs serve
-```
 
-- After running the serve command, the local URL of the docs will be provided. To open the site, press **CTRL and click** the provided link (at the same time) to view the documentation. On a Mac, use **CMD and click**.
-- Press **CTRL c** (at the same time) to stop the hosting process.
+👨‍💻 Author
 
-### 3.4 Execute
+Sabri Hamdaoui
+MBA – Data Analytics | Northwest Missouri State University
+GitHub: sabrouch36
 
-This project includes demo code.
-Run the demo Python modules to confirm everything is working.
+✅ Final Verification Checklist
 
-In VS Code terminal, run:
+ data_prep.py reads all CSV files correctly
 
-```shell
-uv run python -m analytics_project.demo_module_basics
-uv run python -m analytics_project.demo_module_languages
-uv run python -m analytics_project.demo_module_stats
-uv run python -m analytics_project.demo_module_viz
-```
+ Logs appear in project.log
 
-You should see:
+ utils_logger.py configured successfully
 
-- Log messages in the terminal
-- Greetings in several languages
-- Simple statistics
-- A chart window open (close the chart window to continue).
+ README updated with workflow, outputs, and reflection
 
-If this works, your project is ready! If not, check:
-
-- Are you in the right folder? (All terminal commands are to be run from the root project folder.)
-- Did you run the full `uv sync --extra dev --extra docs --upgrade` command?
-- Are there any error messages? (ask for help with the exact error)
-
----
-
-### 3.5 Git add-commit-push to GitHub
-
-Anytime we make working changes to code is a good time to git add-commit-push to GitHub.
-
-1. Stage your changes with git add.
-2. Commit your changes with a useful message in quotes.
-3. Push your work to GitHub.
-
-```shell
-git add .
-git commit -m "describe your change in quotes"
-git push -u origin main
-```
-
-This will trigger the GitHub Actions workflow and publish your documentation via GitHub Pages.
-
-### 3.6 Modify and Debug
-
-With a working version safe in GitHub, start making changes to the code.
-
-Before starting a new session, remember to do a `git pull` and keep your tools updated.
-
-Each time forward progress is made, remember to git add-commit-push.
-
-
+ Project pushed to GitHub
