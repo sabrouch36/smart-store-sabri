@@ -1,4 +1,4 @@
-ProductID,ProductName,Category,UnitPrice,stock quantity,supplier
+productid,productname,category,unitprice,stock_quantity,supplier
 2000,Electronics-Be,Electronics,969.31,97,GlobalFoods
 2001,Electronics-Be,Clothing,412.35,113,GlobalFoods
 2002,Office-Family,Clothing,866.0,91,LocalFarm

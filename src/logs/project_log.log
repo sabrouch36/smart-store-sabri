@@ -1,0 +1,190 @@
+2025-11-04 10:42:18.555 | INFO     | __main__:main:43 - STARTING logger.py
+2025-11-04 10:42:18.555 | INFO     | __main__:log_example:36 - This is an example info message.
+2025-11-04 10:42:18.555 | WARNING  | __main__:log_example:37 - This is an example warning message.
+2025-11-04 10:42:18.555 | ERROR    | __main__:log_example:38 - This is an example error message.
+2025-11-04 10:42:18.555 | INFO     | __main__:main:48 - View the log output at C:\Users\sabri\projects\smart-store-sabri\src\logs\project_log.log
+2025-11-04 10:42:18.555 | INFO     | __main__:main:49 - EXITING logger.py.
+2025-11-04 10:58:45.176 | INFO     | __main__:main:177 - ==================================
+2025-11-04 10:58:45.177 | INFO     | __main__:main:178 - STARTING prepare_customers_data.py
+2025-11-04 10:58:45.177 | INFO     | __main__:main:179 - ==================================
+2025-11-04 10:58:45.177 | INFO     | __main__:main:181 - Root         : C:\Users\sabri\projects\smart-store-sabri\src
+2025-11-04 10:58:45.177 | INFO     | __main__:main:182 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\src\data\raw
+2025-11-04 10:58:45.177 | INFO     | __main__:main:183 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\src\data\prepared
+2025-11-04 10:58:45.178 | INFO     | __main__:main:184 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 10:58:45.178 | INFO     | __main__:read_raw_data:61 - READING: C:\Users\sabri\projects\smart-store-sabri\src\data\raw\customers_data.csv.
+2025-11-04 10:58:45.178 | ERROR    | __main__:read_raw_data:64 - File not found: C:\Users\sabri\projects\smart-store-sabri\src\data\raw\customers_data.csv
+2025-11-04 10:58:45.180 | INFO     | __main__:main:196 - Initial dataframe columns: 
+2025-11-04 10:58:45.180 | INFO     | __main__:main:197 - Initial dataframe shape: (0, 0)
+2025-11-04 11:01:00.505 | INFO     | __main__:main:177 - ==================================
+2025-11-04 11:01:00.505 | INFO     | __main__:main:178 - STARTING prepare_customers_data.py
+2025-11-04 11:01:00.505 | INFO     | __main__:main:179 - ==================================
+2025-11-04 11:01:00.505 | INFO     | __main__:main:181 - Root         : C:\Users\sabri\projects\smart-store-sabri\src
+2025-11-04 11:01:00.505 | INFO     | __main__:main:182 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\src\data\raw
+2025-11-04 11:01:00.505 | INFO     | __main__:main:183 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\src\data\prepared
+2025-11-04 11:01:00.505 | INFO     | __main__:main:184 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 11:01:00.505 | INFO     | __main__:read_raw_data:61 - READING: C:\Users\sabri\projects\smart-store-sabri\src\data\raw\customers_data.csv.
+2025-11-04 11:01:00.505 | ERROR    | __main__:read_raw_data:64 - File not found: C:\Users\sabri\projects\smart-store-sabri\src\data\raw\customers_data.csv
+2025-11-04 11:01:00.505 | INFO     | __main__:main:196 - Initial dataframe columns: 
+2025-11-04 11:01:00.505 | INFO     | __main__:main:197 - Initial dataframe shape: (0, 0)
+2025-11-04 11:01:19.064 | INFO     | __main__:main:179 - ==================================
+2025-11-04 11:01:19.064 | INFO     | __main__:main:180 - STARTING prepare_customers_data.py
+2025-11-04 11:01:19.064 | INFO     | __main__:main:181 - ==================================
+2025-11-04 11:01:19.064 | INFO     | __main__:main:183 - Root         : C:\Users\sabri\projects\smart-store-sabri
+2025-11-04 11:01:19.065 | INFO     | __main__:main:184 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\data\raw
+2025-11-04 11:01:19.065 | INFO     | __main__:main:185 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\data\prepared
+2025-11-04 11:01:19.065 | INFO     | __main__:main:186 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 11:01:19.065 | INFO     | __main__:read_raw_data:63 - READING: C:\Users\sabri\projects\smart-store-sabri\data\raw\customers_data.csv.
+2025-11-04 11:01:19.065 | INFO     | __main__:main:198 - Initial dataframe columns: CustomerID, Name, Region, JoinDate, LoyaltyPoints, CustomerSegment
+2025-11-04 11:01:19.065 | INFO     | __main__:main:199 - Initial dataframe shape: (201, 6)
+2025-11-04 11:01:19.069 | INFO     | __main__:remove_duplicates:101 - FUNCTION START: remove_duplicates with dataframe shape=(201, 6)
+2025-11-04 11:01:19.075 | INFO     | __main__:remove_duplicates:112 - Original dataframe shape: (201, 6)
+2025-11-04 11:01:19.075 | INFO     | __main__:remove_duplicates:113 - Deduped  dataframe shape: (201, 6)
+2025-11-04 11:01:19.077 | INFO     | __main__:handle_missing_values:128 - FUNCTION START: handle_missing_values with dataframe shape=(201, 6)
+2025-11-04 11:01:19.078 | INFO     | __main__:handle_missing_values:132 - Total missing values before handling: 0
+2025-11-04 11:01:19.079 | INFO     | __main__:handle_missing_values:141 - Total missing values after handling: 0
+2025-11-04 11:01:19.079 | INFO     | __main__:handle_missing_values:142 - 201 records remaining after handling missing values.
+2025-11-04 11:01:19.079 | INFO     | __main__:remove_outliers:157 - FUNCTION START: remove_outliers with dataframe shape=(201, 6)
+2025-11-04 11:01:19.079 | INFO     | __main__:remove_outliers:165 - Removed 0 outlier rows
+2025-11-04 11:01:19.079 | INFO     | __main__:remove_outliers:166 - 201 records remaining after removing outliers.
+2025-11-04 11:01:19.080 | INFO     | __main__:save_prepared_data:81 - FUNCTION START: save_prepared_data with file_name=customers_prepared.csv, dataframe shape=(201, 6)
+2025-11-04 11:01:19.080 | INFO     | __main__:save_prepared_data:86 - Data saved to C:\Users\sabri\projects\smart-store-sabri\data\prepared\customers_prepared.csv
+2025-11-04 11:01:19.080 | INFO     | __main__:main:224 - ==================================
+2025-11-04 11:01:19.080 | INFO     | __main__:main:225 - Original shape: (201, 6)
+2025-11-04 11:01:19.080 | INFO     | __main__:main:226 - Cleaned shape:  (201, 6)
+2025-11-04 11:01:19.085 | INFO     | __main__:main:227 - ==================================
+2025-11-04 11:01:19.085 | INFO     | __main__:main:228 - FINISHED prepare_customers_data.py
+2025-11-04 11:01:19.085 | INFO     | __main__:main:229 - ==================================
+2025-11-04 11:02:33.425 | INFO     | __main__:main:244 - ==================================
+2025-11-04 11:02:33.425 | INFO     | __main__:main:245 - STARTING prepare_products_data.py
+2025-11-04 11:02:33.425 | INFO     | __main__:main:246 - ==================================
+2025-11-04 11:02:33.425 | INFO     | __main__:main:248 - Root         : C:\Users\sabri\projects\smart-store-sabri\src
+2025-11-04 11:02:33.425 | INFO     | __main__:main:249 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\src\data\raw
+2025-11-04 11:02:33.425 | INFO     | __main__:main:250 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\src\data\prepared
+2025-11-04 11:02:33.425 | INFO     | __main__:main:251 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 11:02:33.425 | INFO     | __main__:read_raw_data:67 - FUNCTION START: read_raw_data with file_name=products_data.csv
+2025-11-04 11:02:33.425 | INFO     | __main__:read_raw_data:69 - Reading data from C:\Users\sabri\projects\smart-store-sabri\src\data\raw\products_data.csv
+2025-11-04 11:02:58.399 | INFO     | __main__:main:244 - ==================================
+2025-11-04 11:02:58.399 | INFO     | __main__:main:245 - STARTING prepare_products_data.py
+2025-11-04 11:02:58.399 | INFO     | __main__:main:246 - ==================================
+2025-11-04 11:02:58.399 | INFO     | __main__:main:248 - Root         : C:\Users\sabri\projects\smart-store-sabri\src
+2025-11-04 11:02:58.399 | INFO     | __main__:main:249 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\src\data\raw
+2025-11-04 11:02:58.399 | INFO     | __main__:main:250 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\src\data\prepared
+2025-11-04 11:02:58.399 | INFO     | __main__:main:251 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 11:02:58.399 | INFO     | __main__:read_raw_data:67 - FUNCTION START: read_raw_data with file_name=products_data.csv
+2025-11-04 11:02:58.399 | INFO     | __main__:read_raw_data:69 - Reading data from C:\Users\sabri\projects\smart-store-sabri\src\data\raw\products_data.csv
+2025-11-04 11:03:20.369 | INFO     | __main__:main:244 - ==================================
+2025-11-04 11:03:20.369 | INFO     | __main__:main:245 - STARTING prepare_products_data.py
+2025-11-04 11:03:20.369 | INFO     | __main__:main:246 - ==================================
+2025-11-04 11:03:20.369 | INFO     | __main__:main:248 - Root         : C:\Users\sabri\projects\smart-store-sabri\src
+2025-11-04 11:03:20.369 | INFO     | __main__:main:249 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\src\data\raw
+2025-11-04 11:03:20.369 | INFO     | __main__:main:250 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\src\data\prepared
+2025-11-04 11:03:20.369 | INFO     | __main__:main:251 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 11:03:20.369 | INFO     | __main__:read_raw_data:67 - FUNCTION START: read_raw_data with file_name=products_data.csv
+2025-11-04 11:03:20.369 | INFO     | __main__:read_raw_data:69 - Reading data from C:\Users\sabri\projects\smart-store-sabri\src\data\raw\products_data.csv
+2025-11-04 11:04:38.744 | INFO     | __main__:main:245 - ==================================
+2025-11-04 11:04:38.744 | INFO     | __main__:main:246 - STARTING prepare_products_data.py
+2025-11-04 11:04:38.744 | INFO     | __main__:main:247 - ==================================
+2025-11-04 11:04:38.744 | INFO     | __main__:main:249 - Root         : C:\Users\sabri\projects\smart-store-sabri
+2025-11-04 11:04:38.744 | INFO     | __main__:main:250 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\data\raw
+2025-11-04 11:04:38.744 | INFO     | __main__:main:251 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\data\prepared
+2025-11-04 11:04:38.744 | INFO     | __main__:main:252 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 11:04:38.744 | INFO     | __main__:read_raw_data:68 - FUNCTION START: read_raw_data with file_name=products_data.csv
+2025-11-04 11:04:38.744 | INFO     | __main__:read_raw_data:70 - Reading data from C:\Users\sabri\projects\smart-store-sabri\data\raw\products_data.csv
+2025-11-04 11:04:38.754 | INFO     | __main__:read_raw_data:72 - Loaded dataframe with 100 rows and 6 columns
+2025-11-04 11:04:38.754 | INFO     | __main__:read_raw_data:68 - FUNCTION START: read_raw_data with file_name=products_data.csv
+2025-11-04 11:04:38.754 | INFO     | __main__:read_raw_data:70 - Reading data from C:\Users\sabri\projects\smart-store-sabri\data\raw\products_data.csv
+2025-11-04 11:04:38.757 | INFO     | __main__:read_raw_data:72 - Loaded dataframe with 100 rows and 6 columns
+2025-11-04 11:04:38.757 | INFO     | __main__:main:267 - Initial dataframe columns: ProductID, ProductName, Category, UnitPrice,  stock quantity , supplier
+2025-11-04 11:04:38.757 | INFO     | __main__:main:268 - Initial dataframe shape: (100, 6)
+2025-11-04 11:04:38.758 | INFO     | __main__:main:279 - Cleaned column names: ProductID -> productid, ProductName -> productname, Category -> category, UnitPrice -> unitprice,  stock quantity  -> stock_quantity
+2025-11-04 11:04:38.758 | INFO     | __main__:remove_duplicates:109 - FUNCTION START: remove_duplicates with dataframe shape=(100, 6)
+2025-11-04 11:04:38.761 | INFO     | __main__:remove_duplicates:119 - Removed 0 duplicate rows
+2025-11-04 11:04:38.761 | INFO     | __main__:remove_duplicates:120 - 100 records remaining after removing duplicates.
+2025-11-04 11:04:38.761 | INFO     | __main__:handle_missing_values:135 - FUNCTION START: handle_missing_values with dataframe shape=(100, 6)
+2025-11-04 11:04:38.762 | INFO     | __main__:handle_missing_values:140 - Missing values by column before handling:
+productid         0
+productname       0
+category          0
+unitprice         0
+stock_quantity    0
+supplier          0
+dtype: int64
+2025-11-04 11:04:38.765 | INFO     | __main__:handle_missing_values:154 - Missing values by column after handling:
+productid         0
+productname       0
+category          0
+unitprice         0
+stock_quantity    0
+supplier          0
+dtype: int64
+2025-11-04 11:04:38.765 | INFO     | __main__:handle_missing_values:155 - 100 records remaining after handling missing values.
+2025-11-04 11:04:38.765 | INFO     | __main__:remove_outliers:170 - FUNCTION START: remove_outliers with dataframe shape=(100, 6)
+2025-11-04 11:04:38.766 | INFO     | __main__:remove_outliers:189 - Removed 0 outlier rows
+2025-11-04 11:04:38.766 | INFO     | __main__:remove_outliers:190 - 100 records remaining after removing outliers.
+2025-11-04 11:04:38.766 | INFO     | __main__:validate_data:228 - FUNCTION START: validate_data with dataframe shape=(100, 6)
+2025-11-04 11:04:38.766 | INFO     | __main__:validate_data:237 - Data validation complete
+2025-11-04 11:04:38.766 | INFO     | __main__:standardize_formats:204 - FUNCTION START: standardize_formats with dataframe shape=(100, 6)
+2025-11-04 11:04:38.767 | INFO     | __main__:standardize_formats:214 - Completed standardizing formats
+2025-11-04 11:04:38.767 | INFO     | __main__:save_prepared_data:91 - FUNCTION START: save_prepared_data with file_name=products_prepared.csv, dataframe shape=(100, 6)
+2025-11-04 11:04:38.769 | INFO     | __main__:save_prepared_data:96 - Data saved to C:\Users\sabri\projects\smart-store-sabri\data\prepared\products_prepared.csv
+2025-11-04 11:04:38.769 | INFO     | __main__:main:299 - ==================================
+2025-11-04 11:04:38.769 | INFO     | __main__:main:300 - Original shape: (100, 6)
+2025-11-04 11:04:38.769 | INFO     | __main__:main:301 - Cleaned shape:  (100, 6)
+2025-11-04 11:04:38.770 | INFO     | __main__:main:302 - ==================================
+2025-11-04 11:04:38.770 | INFO     | __main__:main:303 - FINISHED prepare_products_data.py
+2025-11-04 11:04:38.770 | INFO     | __main__:main:304 - ==================================
+2025-11-04 11:05:56.804 | INFO     | __main__:main:94 - ==================================
+2025-11-04 11:05:56.804 | INFO     | __main__:main:95 - STARTING prepare_sales_data.py
+2025-11-04 11:05:56.804 | INFO     | __main__:main:96 - ==================================
+2025-11-04 11:05:56.804 | INFO     | __main__:main:98 - Root         : C:\Users\sabri\projects\smart-store-sabri
+2025-11-04 11:05:56.804 | INFO     | __main__:main:99 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\data\raw
+2025-11-04 11:05:56.804 | INFO     | __main__:main:100 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\data\prepared
+2025-11-04 11:05:56.804 | INFO     | __main__:main:101 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 11:05:56.804 | INFO     | __main__:read_raw_data:70 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-11-04 11:05:56.804 | INFO     | __main__:read_raw_data:72 - Reading data from C:\Users\sabri\projects\smart-store-sabri\data\raw\sales_data.csv
+2025-11-04 11:05:56.814 | INFO     | __main__:read_raw_data:74 - Loaded dataframe with 2001 rows and 9 columns
+2025-11-04 11:05:56.814 | INFO     | __main__:main:113 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, DiscountPercent, payment type
+2025-11-04 11:05:56.814 | INFO     | __main__:main:114 - Initial dataframe shape: (2001, 9)
+2025-11-04 11:05:56.814 | INFO     | __main__:main:135 - ==================================
+2025-11-04 11:05:56.814 | INFO     | __main__:main:136 - Original shape: (2001, 9)
+2025-11-04 11:05:56.814 | INFO     | __main__:main:137 - Cleaned shape:  (2001, 9)
+2025-11-04 11:05:56.814 | INFO     | __main__:main:138 - ==================================
+2025-11-04 11:05:56.814 | INFO     | __main__:main:139 - FINISHED prepare_sales_data.py
+2025-11-04 11:05:56.814 | INFO     | __main__:main:140 - ==================================
+2025-11-04 11:16:07.621 | INFO     | __main__:main:94 - ==================================
+2025-11-04 11:16:07.621 | INFO     | __main__:main:95 - STARTING prepare_sales_data.py
+2025-11-04 11:16:07.621 | INFO     | __main__:main:96 - ==================================
+2025-11-04 11:16:07.621 | INFO     | __main__:main:98 - Root         : C:\Users\sabri\projects\smart-store-sabri
+2025-11-04 11:16:07.621 | INFO     | __main__:main:99 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\data\raw
+2025-11-04 11:16:07.621 | INFO     | __main__:main:100 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\data\prepared
+2025-11-04 11:16:07.621 | INFO     | __main__:main:101 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 11:16:07.621 | INFO     | __main__:read_raw_data:70 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-11-04 11:16:07.621 | INFO     | __main__:read_raw_data:72 - Reading data from C:\Users\sabri\projects\smart-store-sabri\data\raw\sales_data.csv
+2025-11-04 11:16:07.627 | INFO     | __main__:read_raw_data:74 - Loaded dataframe with 2001 rows and 9 columns
+2025-11-04 11:16:07.627 | INFO     | __main__:main:113 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, DiscountPercent, payment type
+2025-11-04 11:16:07.627 | INFO     | __main__:main:114 - Initial dataframe shape: (2001, 9)
+2025-11-04 11:16:07.627 | INFO     | __main__:main:135 - ==================================
+2025-11-04 11:16:07.627 | INFO     | __main__:main:136 - Original shape: (2001, 9)
+2025-11-04 11:16:07.632 | INFO     | __main__:main:137 - Cleaned shape:  (2001, 9)
+2025-11-04 11:16:07.632 | INFO     | __main__:main:138 - ==================================
+2025-11-04 11:16:07.632 | INFO     | __main__:main:139 - FINISHED prepare_sales_data.py
+2025-11-04 11:16:07.632 | INFO     | __main__:main:140 - ==================================
+2025-11-04 13:13:55.515 | INFO     | __main__:main:94 - ==================================
+2025-11-04 13:13:55.515 | INFO     | __main__:main:95 - STARTING prepare_sales_data.py
+2025-11-04 13:13:55.515 | INFO     | __main__:main:96 - ==================================
+2025-11-04 13:13:55.516 | INFO     | __main__:main:98 - Root         : C:\Users\sabri\projects\smart-store-sabri
+2025-11-04 13:13:55.516 | INFO     | __main__:main:99 - data/raw     : C:\Users\sabri\projects\smart-store-sabri\data\raw
+2025-11-04 13:13:55.516 | INFO     | __main__:main:100 - data/prepared: C:\Users\sabri\projects\smart-store-sabri\data\prepared
+2025-11-04 13:13:55.516 | INFO     | __main__:main:101 - scripts      : C:\Users\sabri\projects\smart-store-sabri\src\analytics_project
+2025-11-04 13:13:55.516 | INFO     | __main__:read_raw_data:70 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-11-04 13:13:55.516 | INFO     | __main__:read_raw_data:72 - Reading data from C:\Users\sabri\projects\smart-store-sabri\data\raw\sales_data.csv
+2025-11-04 13:13:55.522 | INFO     | __main__:read_raw_data:74 - Loaded dataframe with 2001 rows and 9 columns
+2025-11-04 13:13:55.522 | INFO     | __main__:main:113 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, DiscountPercent, payment type
+2025-11-04 13:13:55.523 | INFO     | __main__:main:114 - Initial dataframe shape: (2001, 9)
+2025-11-04 13:13:55.523 | INFO     | __main__:save_prepared_data:151 - Saving cleaned data to C:\Users\sabri\projects\smart-store-sabri\data\prepared\sales_prepared.csv
+2025-11-04 13:13:55.533 | INFO     | __main__:main:135 - ==================================
+2025-11-04 13:13:55.533 | INFO     | __main__:main:136 - Original shape: (2001, 9)
+2025-11-04 13:13:55.534 | INFO     | __main__:main:137 - Cleaned shape:  (2001, 9)
+2025-11-04 13:13:55.534 | INFO     | __main__:main:138 - ==================================
+2025-11-04 13:13:55.534 | INFO     | __main__:main:139 - FINISHED prepare_sales_data.py
+2025-11-04 13:13:55.534 | INFO     | __main__:main:140 - ==================================
