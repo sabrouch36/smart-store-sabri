@@ -54,8 +54,6 @@ PREPARED_DATA_DIR.mkdir(exist_ok=True)
 # Define Functions - Reusable blocks of code / instructions
 #####################################
 
-# TODO: Complete this by implementing functions based on the logic in the other scripts
-
 
 def read_raw_data(file_name: str) -> pd.DataFrame:
     """
@@ -73,11 +71,12 @@ def read_raw_data(file_name: str) -> pd.DataFrame:
     df = pd.read_csv(file_path)
     logger.info(f"Loaded dataframe with {len(df)} rows and {len(df.columns)} columns")
 
-    # TODO: OPTIONAL Add data profiling here to understand the dataset
-    # Suggestion: Log the datatypes of each column and the number of unique values
-    # Example:
-    # logger.info(f"Column datatypes: \n{df.dtypes}")
-    # logger.info(f"Number of unique values: \n{df.nunique()}")
+    # --- Basic data profiling for understanding the dataset ---
+    logger.info("DATA PROFILING START")
+    logger.info(f"Column datatypes:\n{df.dtypes}")
+    logger.info(f"Number of unique values per column:\n{df.nunique()}")
+    logger.info(f"Missing values per column:\n{df.isna().sum()}")
+    logger.info("DATA PROFILING END")
 
     return df
 
@@ -124,12 +123,76 @@ def main() -> None:
     if changed_columns:
         logger.info(f"Cleaned column names: {', '.join(changed_columns)}")
 
-    # TODO: Remove duplicates
+    # Remove duplicates
+    before = len(df)
+    key_cols = [c for c in ["TransactionID"] if c in df.columns]
+    if key_cols:
+        logger.info(f"De-duplicating using key(s): {key_cols}")
+        df = df.drop_duplicates(subset=key_cols, keep="first")
+    else:
+        logger.warning("No TransactionID column found; using full-row de-duplication.")
+        df = df.drop_duplicates(keep="first")
+    logger.info(f"Removed {before - len(df)} duplicate rows")
 
-    # TODO:Handle missing values
+    # Handle missing values
+    logger.info("Handling missing values...")
+    logger.info(f"Missing values BEFORE:\n{df.isna().sum()}")
 
-    # TODO:Remove outliers
+    if "TransactionID" in df.columns:
+        before = len(df)
+        df = df.dropna(subset=["TransactionID"])
+        logger.info(f"Dropped {before - len(df)} rows missing TransactionID")
 
+    for key in ["CustomerID", "ProductID"]:
+        if key in df.columns:
+            before = len(df)
+            df = df.dropna(subset=[key])
+            logger.info(f"Dropped {before - len(df)} rows missing {key}")
+
+    if "SaleDate" in df.columns:
+        df["SaleDate"] = pd.to_datetime(df["SaleDate"], errors="coerce")
+        before = len(df)
+        df = df.dropna(subset=["SaleDate"])
+        logger.info(f"Dropped {before - len(df)} rows with invalid SaleDate")
+
+    for col in ["SaleAmount", "UnitPrice", "Quantity"]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+            median_val = df[col].median()
+            df[col].fillna(median_val, inplace=True)
+            logger.info(f"Filled {col} NaNs with median {median_val}")
+
+    if "DiscountPercent" in df.columns:
+        df["DiscountPercent"] = pd.to_numeric(df["DiscountPercent"], errors="coerce").fillna(0)
+
+    for col in ["PaymentType", "payment_type"]:
+        if col in df.columns:
+            m = df[col].mode()
+            if not m.empty:
+                df[col].fillna(m[0], inplace=True)
+                logger.info(f"Filled {col} NaNs with mode '{m[0]}'")
+
+    logger.info(f"Missing values AFTER:\n{df.isna().sum()}")
+
+    # Remove outliers
+    logger.info("Removing outliers...")
+    numeric_cols = [c for c in df.columns if pd.api.types.is_numeric_dtype(df[c])]
+    if not numeric_cols:
+        logger.warning("No numeric columns found for outlier removal.")
+    else:
+        for col in numeric_cols:
+            q1 = df[col].quantile(0.25)
+            q3 = df[col].quantile(0.75)
+            iqr = q3 - q1
+            lower = q1 - 1.5 * iqr
+            upper = q3 + 1.5 * iqr
+            before = len(df)
+            df = df[(df[col] >= lower) & (df[col] <= upper)]
+            removed = before - len(df)
+            logger.info(f"[outliers] {col}: kept [{lower:.2f}, {upper:.2f}] | removed {removed}")
+
+    logger.info(f"Final dataframe shape after outlier removal: {df.shape}")
+    # Save prepared data
     save_prepared_data(df, output_file)
 
     logger.info("==================================")

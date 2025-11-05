@@ -19,6 +19,7 @@ Tasks:
 # Import from Python Standard Library
 import pathlib
 import sys
+import numpy as np
 
 # Import from external packages (requires a virtual environment)
 import pandas as pd
@@ -131,10 +132,16 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     missing_before = df.isna().sum().sum()
     logger.info(f"Total missing values before handling: {missing_before}")
 
-    # TODO: Fill or drop missing values based on business rules
-    # Example:
-    # df['CustomerName'].fillna('Unknown', inplace=True)
-    # df.dropna(subset=['CustomerID'], inplace=True)
+    if "CustomerID" in df.columns:
+        df.dropna(subset=["CustomerID"], inplace=True)
+
+    if "CustomerName" in df.columns:
+        df["CustomerName"].fillna("Unknown", inplace=True)
+
+    for col in ["City", "State", "Country"]:
+        if col in df.columns:
+            df[col].fillna("Unknown", inplace=True)
+    # --- End: business rules for missing values ---
 
     # Log missing values count after handling
     missing_after = df.isna().sum().sum()
@@ -145,21 +152,26 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
 
 def remove_outliers(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Remove outliers based on thresholds.
-    This logic is very specific to the actual data and business rules.
-
-    Args:
-        df (pd.DataFrame): Input DataFrame.
-
-    Returns:
-        pd.DataFrame: DataFrame with outliers removed.
+    Remove outliers using IQR per numeric column.
     """
     logger.info(f"FUNCTION START: remove_outliers with dataframe shape={df.shape}")
     initial_count = len(df)
 
-    # TODO: Define numeric columns and apply rules for outlier removal
-    # Example:
-    # df = df[(df['Age'] > 18) & (df['Age'] < 100)]
+    numeric_cols = [c for c in df.columns if pd.api.types.is_numeric_dtype(df[c])]
+    preferred = [c for c in ["Age", "AnnualIncome"] if c in numeric_cols]
+    cols_to_check = preferred if preferred else numeric_cols
+
+    for col in cols_to_check:
+        q1 = df[col].quantile(0.25)
+        q3 = df[col].quantile(0.75)
+        iqr = q3 - q1
+        lower = q1 - 1.5 * iqr
+        upper = q3 + 1.5 * iqr
+        before = len(df)
+        df = df[(df[col] >= lower) & (df[col] <= upper)]
+        logger.info(
+            f"[outliers] {col}: kept [{lower:.2f}, {upper:.2f}] | removed {before - len(df)}"
+        )
 
     removed_count = initial_count - len(df)
     logger.info(f"Removed {removed_count} outlier rows")
