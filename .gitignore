@@ -83,3 +83,4 @@ site/
 .mypy_cache/
 .pytype/
 .cache/
+data/prepared/

@@ -1,4 +1,5 @@
-"""
+"""Prepare customer data by reading raw files, cleaning them, and writing cleaned output to data/prepared.
+
 scripts/data_preparation/prepare_customers.py
 
 This script reads customer data from the data/raw folder, cleans the data,

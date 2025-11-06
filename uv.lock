@@ -53,6 +53,9 @@ dependencies = [
     { name = "loguru" },
     { name = "matplotlib" },
     { name = "pandas" },
+    { name = "pre-commit" },
+    { name = "pytest" },
+    { name = "pytest-cov" },
     { name = "seaborn" },
 ]
 
@@ -82,8 +85,11 @@ requires-dist = [
     { name = "mkdocs-material", marker = "extra == 'docs'" },
     { name = "mkdocstrings", extras = ["python"], marker = "extra == 'docs'" },
     { name = "pandas" },
+    { name = "pre-commit", specifier = ">=4.3.0" },
     { name = "pre-commit", marker = "extra == 'dev'" },
+    { name = "pytest", specifier = ">=8.4.2" },
     { name = "pytest", marker = "extra == 'dev'" },
+    { name = "pytest-cov", specifier = ">=7.0.0" },
     { name = "pytest-cov", marker = "extra == 'dev'" },
     { name = "ruff", marker = "extra == 'docs'" },
     { name = "seaborn" },

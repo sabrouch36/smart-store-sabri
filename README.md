@@ -1,8 +1,7 @@
-# 📊 Project P2: BI Python – Reading Raw Data into pandas DataFrames
 
 > Use this repo to start a professional Python BI project that reads raw data into pandas DataFrames.
 
-- Course: Business Intelligence (Pro Analytics 02)
+- Course: Business Intelligence
 - Instructor: Dr. Denise Case
 - Repository Template: <https://github.com/denisecase/pro-analytics-02>
 - Author: **Sabri Hamdaoui**, MBA – Data Analytics
@@ -11,135 +10,53 @@
 
 ---
 
-## 🎯 Project Objective
-This project demonstrates how to read raw business data (CSV files) into **pandas DataFrames** using Python, as part of a Business Intelligence (BI) data pipeline.
-It emphasizes reusable logic, structured code, logging, and Git-based project management.
+# Smart Store Data Preparation (P3)
 
----
+This project prepares raw business data (Customers, Products, and Sales) so it is clean, consistent, and ready for use in analytics and future ETL processes.
 
-## 🧠 Key Learning Outcomes
-- Automate the reading of CSV files into pandas DataFrames.
-- Use **loguru** for professional, centralized logging.
-- Structure a Python project using the `src/analytics_project/` folder.
-- Apply **Git version control** for collaborative data projects.
-- Understand BI workflows that prepare data for analysis and visualization.
+## Project Goal
+The goal of this phase is to clean and standardize datasets to ensure accuracy and reliability when performing reporting, visualizations, or loading into a central data warehouse.
 
----
+## Key Tasks Performed
+- Removed duplicate records
+- Handled missing values using simple fill strategies
+- Standardized text fields (trim + lowercase)
+- Automatically detected correct name columns
+- Removed numeric outliers where appropriate
+- Saved cleaned outputs into a `prepared/` data directory
 
-## 🧩 Project Structure
-smart-store-sabri/
-│
-├── data/
-│ └── raw/
-│ ├── customers_data.csv
-│ ├── products_data.csv
-│ └── sales_data.csv
-│
-├── src/
-│ └── analytics_project/
-│ ├── data_prep.py
-│ └── utils_logger.py
-│
-├── project.log
-├── pyproject.toml
-└── README.md
+## Files Processed
+| Raw Dataset               | Output File                      |
+|--------------------------|----------------------------------|
+| `customers_data.csv`     | `customers_prepared.csv`         |
+| `products_data.csv`      | `products_prepared.csv`          |
+| `sales_data.csv`         | `sales_prepared.csv`             |
 
----
-
-## ⚙️ Setup & Execution Workflow
-
-### 1️⃣ Environment Setup
-Create and activate your local environment.
-
-```bash
-uv venv
-uv python pin 3.12
-uv sync --extra dev --extra docs --upgrade
-uv run pre-commit install
-uv run python --version
-Windows (PowerShell)
-.\.venv\Scripts\activate
-
-3️⃣ Example Log Output
-2025-10-28 22:38:INFO AT utils_logger.py:105: Logging to file: C:\Users\sabri\projects\smart-store-sabri\project.log
-2025-10-28 22:38:INFO AT data_prep.py:52: Starting data preparation...
-2025-10-28 22:38:INFO AT data_prep.py:35: Reading raw data from customers_data.csv
-2025-10-28 22:38:INFO AT data_prep.py:38: customers_data.csv: loaded DataFrame with shape 201 rows x 4 cols
-2025-10-28 22:38:INFO AT data_prep.py:35: Reading raw data from products_data.csv
-2025-10-28 22:38:INFO AT data_prep.py:38: products_data.csv: loaded DataFrame with shape 100 rows x 4 cols
-2025-10-28 22:38:INFO AT data_prep.py:35: Reading raw data from sales_data.csv
-2025-10-28 22:38:INFO AT data_prep.py:38: sales_data.csv: loaded DataFrame with shape 2001 rows x 7 cols
-2025-10-28 22:38:INFO AT data_prep.py:64: Data preparation complete.
-
-4️⃣ Git Version Control Commands
-
-Use Git frequently to track progress and sync your work to GitHub.
-git add .
-git commit -m "Add data_prep and utils_logger modules"
-git push -u origin main
-
-Later updates:
-git add README.md
-git commit -m "Update README with workflow, results, and reflection"
-git push
-
-5️⃣ Results Summary
-
-All raw data files were successfully loaded into DataFrames.
-
-File Name	Rows	Columns
-customers_data.csv	201	4
-products_data.csv	100	4
-sales_data.csv	2001	7
-
-✅ Logs confirm that the ETL (Extract–Transform–Load) pipeline executed without errors.
-
-🧠 Reflection
-
-Through this project, I learned to:
-
-Implement modular BI data pipelines in Python.
-
-Use logging for debugging and traceability.
-
-Manage code versions professionally with Git and GitHub.
-
-Prepare data for future analytics or visualization workflows.
-
-This experience builds strong foundational skills for real-world business intelligence and data analytics work.
-
-🧰 Optional Development Tools & Checks
-
-To maintain professional project standards:
-
-uv sync --extra dev --extra docs --upgrade
-uv cache clean
-git add .
-uvx ruff check --fix
-uvx pre-commit autoupdate
-uv run pre-commit run --all-files
-uv run pytest
+## Main Script
+The primary pipeline is located at:
+src/analytics_project/data_prep.py
 
 
-Run documentation build (optional for BI reporting):
+## The reusable data cleaning helper class is located at:
+src/utils/data_scrubber.py
 
-uv run mkdocs build --strict
-uv run mkdocs serve
 
-👨‍💻 Author
+## How to Run
+From the project root:
 
-Sabri Hamdaoui
-MBA – Data Analytics | Northwest Missouri State University
-GitHub: sabrouch36
+uv sync
+uv run python -m analytics_project.data_prep
 
-✅ Final Verification Checklist
 
- data_prep.py reads all CSV files correctly
+## Output Location
 
- Logs appear in project.log
+Cleaned data is stored here:
+/data/prepared/
 
- utils_logger.py configured successfully
+## Logging
 
- README updated with workflow, outputs, and reflection
+All execution logs are stored in:
+project.log
 
- Project pushed to GitHub
+
+Data is now clean and ready for the ETL and analysis steps in upcoming modules.
