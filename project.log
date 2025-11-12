@@ -210,3 +210,19 @@ Norwegian: Hei! Velkommen til Python-programmering.
 2025-11-05 21:32:INFO    AT data_prep.py:93: [outliers] CustomerID: kept [890.00, 1306.00] | removed 1
 2025-11-05 21:32:INFO    AT data_prep.py:185: Saved cleaned sales data to C:\Users\sabri\projects\smart-store-sabri\data\prepared\sales_prepared.csv
 2025-11-05 21:32:INFO    AT data_prep.py:196: Data preparation complete.
+2025-11-05 21:45:INFO    AT utils_logger.py:105: Logging to file: C:\Users\sabri\projects\smart-store-sabri\project.log
+2025-11-05 21:45:INFO    AT data_prep.py:192: Starting data preparation...
+2025-11-05 21:45:INFO    AT data_prep.py:36: Reading raw data from C:\Users\sabri\projects\smart-store-sabri\data\raw\customers_data.csv.
+2025-11-05 21:45:INFO    AT data_prep.py:38: customers_data.csv: loaded DataFrame with shape 201 rows x 6 cols
+2025-11-05 21:45:INFO    AT data_prep.py:71: Formatted text column: Name
+2025-11-05 21:45:INFO    AT data_prep.py:138: Saved cleaned customers data to C:\Users\sabri\projects\smart-store-sabri\data\prepared\customers_prepared.csv
+2025-11-05 21:45:INFO    AT data_prep.py:36: Reading raw data from C:\Users\sabri\projects\smart-store-sabri\data\raw\products_data.csv.
+2025-11-05 21:45:INFO    AT data_prep.py:38: products_data.csv: loaded DataFrame with shape 100 rows x 6 cols
+2025-11-05 21:45:INFO    AT data_prep.py:71: Formatted text column: ProductName
+2025-11-05 21:45:INFO    AT data_prep.py:60: Formatted text column: Category
+2025-11-05 21:45:INFO    AT data_prep.py:162: Saved cleaned products data to C:\Users\sabri\projects\smart-store-sabri\data\prepared\products_prepared.csv
+2025-11-05 21:45:INFO    AT data_prep.py:36: Reading raw data from C:\Users\sabri\projects\smart-store-sabri\data\raw\sales_data.csv.
+2025-11-05 21:45:INFO    AT data_prep.py:38: sales_data.csv: loaded DataFrame with shape 2001 rows x 9 cols
+2025-11-05 21:45:INFO    AT data_prep.py:93: [outliers] CustomerID: kept [890.00, 1306.00] | removed 1
+2025-11-05 21:45:INFO    AT data_prep.py:185: Saved cleaned sales data to C:\Users\sabri\projects\smart-store-sabri\data\prepared\sales_prepared.csv
+2025-11-05 21:45:INFO    AT data_prep.py:196: Data preparation complete.
