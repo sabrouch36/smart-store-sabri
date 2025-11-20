@@ -117,3 +117,142 @@ This will recreate the DW schema and reload all prepared data.
 ![Row Counts](docs/images/dw-rowcounts.png)
 ![FK Check](docs/images/dw-fkcheck.png)
 
+📊 P5 – Cross-Platform Reporting with Power BI
+🎯 Overview
+
+In this phase, we used Power BI Desktop (Windows implementation) to connect to the SQLite data warehouse created in P4, perform OLAP operations, and generate interactive business intelligence reports.
+
+The reporting workflow included:
+
+Connecting Power BI to the SQLite warehouse via ODBC
+
+Importing the customer, product, and sale tables
+
+Cleaning the date column and converting it to a proper Date type
+
+Creating slicers, pivot tables, and charts
+
+Applying slice, dice, and drilldown operations
+
+Producing final visualizations to analyze sales performance by category and region
+
+🗂️ Data Model in Power BI
+
+After loading the DW, the following model appeared in Power BI:
+
+sale (fact table)
+
+customer (dimension)
+
+product (dimension)
+
+Relationships were based on:
+
+sale.customer_id → customer.customer_id
+
+sale.product_id → product.product_id
+
+✔ Relationships created successfully
+✔ Date column cleaned and converted from text to Date
+✔ Error row removed (2023-13-01)
+
+🔍 OLAP Operations
+1️⃣ Slice (Filter by Date)
+
+Using a date slicer, sales were filtered using a specific date range:
+
+Added a Slicer visual
+
+Placed sale_date in the slicer
+
+Set slicer type to Between
+
+Result: shows sales only for the chosen time window
+### 📌 Slice Operation (Date Filter)
+
+![Slice](docs/images/slice.png)
+
+
+2️⃣ Dice (Category × Region Pivot)
+
+Created a matrix table to analyze sales by:
+
+Rows: product category
+
+Columns: customer region
+
+Values: Sum of sale_amount
+
+This produced a full cross-tab analysis (category × region), including totals.
+
+📸 Matching screenshot:
+
+### 🎲 Dice Operation (Category × Region)
+
+![Dice](docs/images/dice.png)
+
+
+3️⃣ Drilldown (Chart Visualization)
+
+A clustered column chart was created:
+
+X-axis: region
+
+Legend: category
+
+Y-axis: Sum of sale_amount
+
+This enables:
+
+Visual drilldown by clicking a category
+
+Comparing regions
+
+Seeing category patterns clearly
+
+📸 Matching screenshot:
+
+![drilldown](docs/images/drilldown.png)
+
+📈 Final Visuals Included
+
+✔ Slicer for sale_date
+
+✔ Pivot (matrix) for category × region
+
+✔ Clustered column chart (drilldown enabled)
+
+✔ Cleaned and validated data model
+
+🛠️ Tools Used
+
+Power BI Desktop (Windows)
+
+ODBC connection to SQLite (smart_sales.db)
+
+Star schema (fact_sale + dimensions)
+
+📄 How to Reproduce
+
+Launch Power BI Desktop
+
+Get Data → ODBC → Select SQLite connection
+
+Load the three DW tables
+
+Convert sale_date column to Date
+
+Create slicer, matrix, and chart
+
+Save report as .pbix
+
+Export screenshots for documentation
+
+📸 Required Submission Images (all completed)
+
+
+✔ Slice result (date filter)
+
+✔ Dice result (category × region matrix)
+
+✔ Drilldown chart (clustered columns)
