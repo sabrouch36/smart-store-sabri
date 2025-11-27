@@ -256,3 +256,238 @@ Export screenshots for documentation
 ✔ Dice result (category × region matrix)
 
 ✔ Drilldown chart (clustered columns)
+
+
+📘 P6 – BI Insights and Storytelling (OLAP with Python)
+🎯 Project Goal
+
+The goal of this phase is to apply OLAP slicing, dicing, and drilldown techniques using Python to analyze seasonal sales trends and uncover actionable business insights.
+
+Business Objective Selected:
+Identify seasonal sales patterns across product categories and regions to improve inventory planning.
+
+Short Name: Seasonal Sales Trends
+
+This analysis helps the business prepare sufficient stock for high-demand periods, reduce overstock in slow months, and align staffing with sales peaks.
+
+🗂️ Section 1 — Data Source
+
+For this project, I used the data warehouse (smart_sales.db) created in P4.
+The warehouse contains:
+
+Table	Description
+sale	Fact table of all transactions
+customer	Customer dimension
+product	Product dimension
+
+Columns used:
+
+From sale
+
+sale_id
+
+customer_id
+
+product_id
+
+sale_amount
+
+sale_date
+
+From customer
+
+region
+
+From product
+
+category
+
+These were combined into a single dataset using Python JOIN operations.
+
+🧰 Section 2 — Tools Used
+
+Python (Pandas, Matplotlib, Seaborn)
+
+SQLite (warehouse)
+
+Jupyter/VS Code terminal
+
+uv package manager
+
+Python was chosen because it supports:
+
+automated OLAP-style analysis
+
+fast grouping/aggregation
+
+repeatable and scalable workflows
+
+🔍 Section 3 — Workflow & OLAP Logic
+✔ Step 1 — Load DW Tables
+
+Loaded sale, customer, and product tables from the SQLite warehouse into Pandas DataFrames.
+
+✔ Step 2 — Join Tables (DW → Analysis DataFrame)
+
+Performed two JOIN operations:
+
+sale × customer on customer_id
+
+sale × product on product_id
+
+Result: a fully enriched dataset with region + category info per transaction.
+
+✔ Step 3 — Clean & Transform
+
+Converted sale_date to proper datetime
+
+Fixed invalid dates using errors="coerce"
+
+Extracted:
+
+year
+
+month
+
+Selected the useful OLAP fields
+
+Final clean fields:
+
+| year | month | category | region | sale_amount | sale_id |
+
+🧮 Section 4 — Build OLAP Cube
+
+Using groupby we generated a multi-dimensional cube:
+
+Dimensions:
+
+year
+
+month
+
+category
+
+region
+
+Metrics:
+
+total_sales = SUM(sale_amount)
+
+transactions = COUNT(sale_id)
+
+AOV = total_sales / transactions
+
+Example (first rows):
+
+year	month	category	region	total_sales	AOV
+
+Cube shape: (32, 7)
+
+🪜 Section 5 — OLAP Operations
+
+1️⃣ Slice (Filter a single dimension)
+slice_2025 = cube[cube["year"] == 2025]
+✔ Shows only sales for year 2025.
+
+2️⃣ Dice (Filter multiple dimensions)
+cube[(cube["category"] == "clothing") & (cube["region"].str.lower() == "north")]
+✔ Clothing sales in the North region.
+
+3️⃣ Drilldown (Year → Month)
+
+Aggregated yearly totals:
+Then drilled down to monthly totals:
+yearly = cube.groupby("year").sum()
+monthly = cube.groupby(["year", "month"]).sum()
+
+✔ Shows high-level → detailed trend navigation.
+
+📊 Section 6 — Visualizations
+📈 1) Line Chart – Seasonal Trends by Category
+
+Shows monthly sales patterns:
+![Seasonal Trends](docs/images/line_trends.png)
+
+Interpretation:
+
+Product categories show variation in seasonal demand.
+
+Home and Electronics showed higher total sales in the provided dataset.
+
+🔥 2) Heatmap (Month × Category)
+
+![Heatmap](docs/images/heatmap_sales.png)
+
+Interpretation:
+
+Month 5 showed highest activity across all categories.
+
+Heatmap highlights which product categories spike during specific months.
+
+📊 3) Bar Chart – Total Sales by Region
+
+![Region Sales](docs/images/region_sales.png)
+
+Interpretation:
+
+North and West regions generated the highest revenue.
+
+Useful for regional stocking and staffing decisions.
+
+🧭 Section 7 — Business Insights
+
+✔ The North and West regions consistently outperform others
+✔ Electronics and Home categories generate the largest revenue
+✔ Month 5 shows a strong seasonal spike
+✔ AOV is highest in high-sales categories (e.g., Home)
+
+🛠️ Section 8 — Recommended Business Actions
+
+Based on the OLAP analysis:
+
+📌 Inventory
+
+Increase inventory for Home and Electronics categories before peak season.
+
+Reduce overstock for lower-performing regions.
+
+📌 Staffing
+
+Add temporary staff in North + West regions during high-demand months.
+
+📌 Marketing
+
+Launch targeted promotions for categories with moderate performance.
+
+📌 Regional Strategy
+
+Investigate reasons behind lower sales in “south-west” and “east”.
+
+⚠️ Section 9 — Challenges Encountered
+
+Invalid dates (2023-13-01) required cleaning with errors="coerce"
+
+Region names were inconsistent (east, EAST, East)
+
+Visualizations required temporarily disabling multiple plt.show() calls to avoid Tk window blocking
+
+Dataset only includes one month (May), so seasonal variation is limited
+
+📎 How to Reproduce
+
+From project root:
+
+uv sync
+uv run python -m analytics_project.olap_seasonal
+
+
+Screenshots should be saved to:
+
+docs/images/
+
+🎉 P6 Complete
+
+This phase provided a full OLAP-style analysis pipeline:
+
+Warehouse → Clean → Join → Cube → OLAP → Visual Storytelling
+Ready for real BI decision-making.

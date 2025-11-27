@@ -6,7 +6,7 @@ import sys
 import pandas as pd
 
 PROJECT_ROOT = pathlib.Path(__file__).resolve().parent.parent  # src/analytics_project/..
-DATA_DIR = PROJECT_ROOT.parent / "data"  
+DATA_DIR = PROJECT_ROOT.parent / "data"
 PREPARED_DATA_DIR = DATA_DIR / "prepared"
 DW_DIR = DATA_DIR / "dw"
 DB_PATH = DW_DIR / "smart_sales.db"
