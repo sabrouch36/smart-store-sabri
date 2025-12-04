@@ -491,3 +491,106 @@ This phase provided a full OLAP-style analysis pipeline:
 
 Warehouse → Clean → Join → Cube → OLAP → Visual Storytelling
 Ready for real BI decision-making.
+
+
+📘 P7 – Customer Value Segmentation (LTV / Tenure Analysis)
+🎯 Overview
+
+In this phase, we extended the Smart Store BI project by generating customer lifetime value insights and applying a tenure-based segmentation model.
+The goal is to understand customer loyalty levels and identify which segments contribute most to revenue.
+
+This phase prepares a new analytical dataset that can be used in dashboards (Power BI, Python OLAP, or future ML models).
+
+🧠 What This Module Adds
+
+Calculates customer tenure based on the time between a customer's join date and their last purchase.
+
+Segments customers into interpretable groups:
+
+New (<1y)
+
+Active (1–3y)
+
+Loyal (3y+)
+
+Computes aggregated sales metrics per customer.
+
+Saves the results as a reusable dataset for future BI steps.
+
+📂 New Script Added
+
+The new module is located at:
+
+src/analytics_project/p7_customer_value.py
+
+
+It performs the following:
+
+Loads sales + customer tables from the DW
+
+Calculates:
+
+tenure_days
+
+tenure_years
+
+Applies segmentation logic
+
+Aggregates:
+
+total sales
+
+number of purchases
+
+average purchase value (AOV)
+
+Exports the final dataset.
+
+📄 Segmentation Logic
+def segment_customer(tenure_years: float) -> str:
+    if pd.isna(tenure_years):
+        return "Unknown"
+    if tenure_years < 1:
+        return "New (<1y)"
+    elif tenure_years < 3:
+        return "Active (1-3y)"
+    else:
+        return "Loyal (3y+)"
+
+📤 Output File
+
+After running the module, the results are saved to:
+
+data/prepared/customer_value.csv
+
+The output contains:
+Column	Description
+customer_id	Unique customer
+total_sales	Total revenue from this customer
+transactions	Number of purchases
+AOV	Average order value
+tenure_years	Years since customer joined
+segment	Customer category: New / Active / Loyal
+▶️ How to Run
+
+From the project root:
+
+uv sync
+uv run python -m analytics_project.p7_customer_value
+
+
+This will regenerate the CSV file with updated segmentation and metrics.
+
+📊 Why This Matters (Business Value)
+
+Helps identify loyal customers who drive long-term revenue
+
+Supports targeted promotions for New and Active customers
+
+Enables customer-centric BI dashboards (RFM, LTV, churn prediction)
+
+Integrates perfectly with future Power BI visualizations and machine learning models
+
+🎉 P7 Complete
+
+This module adds a full customer-value layer to the Smart Store analytics framework, bridging the gap between raw BI reporting and advanced customer intelligence.
